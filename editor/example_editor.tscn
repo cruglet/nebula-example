@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wgpdseqh3ryv"]
+
+[ext_resource type="Script" uid="uid://jbj7jdpb3kta" path="res://modules/example/editor/example_editor.gd" id="1_41ew0"]
+[ext_resource type="PackedScene" uid="uid://c0qfd8wovs2p1" path="res://components/editor/editor_interface.tscn" id="1_lglsp"]
+
+[node name="ExampleEditor" type="Control" node_paths=PackedStringArray("interface")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41ew0")
+interface = NodePath("EditorInterface")
+
+[node name="EditorInterface" parent="." instance=ExtResource("1_lglsp")]
+layout_mode = 1
