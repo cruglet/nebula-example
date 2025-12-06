@@ -1,0 +1,12 @@
+[gd_resource type="Module" format=3 uid="uid://btj1p614enj3c"]
+
+[resource]
+name = "Example Module"
+description = "My example module!"
+authors = Array[String](["Cruglet"])
+group = "nebula"
+id = "example"
+entry_scene = "res://modules/example/editor/example_editor.tscn"
+module_folder = "res://modules/example/"
+module_image = "res://modules/example/meta/module_banner.png"
+project_image = "res://modules/example/meta/module_banner.png"

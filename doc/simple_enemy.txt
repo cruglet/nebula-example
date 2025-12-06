@@ -1,0 +1,4 @@
+[object name="Simple Enemy", class="Enemy"]
+
+[prop name=hp, type=int, default=3]
+The HP the simple enemy has

@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://wgpdseqh3ryv"]
+[gd_scene load_steps=4 format=3 uid="uid://wgpdseqh3ryv"]
 
 [ext_resource type="Script" uid="uid://jbj7jdpb3kta" path="res://modules/example/editor/example_editor.gd" id="1_41ew0"]
 [ext_resource type="PackedScene" uid="uid://c0qfd8wovs2p1" path="res://components/editor/editor_interface.tscn" id="1_lglsp"]
+[ext_resource type="Script" uid="uid://bp80sxnstm1np" path="res://modules/example/editor/helpers/example_level_loader.gd" id="3_k22i1"]
 
-[node name="ExampleEditor" type="Control" node_paths=PackedStringArray("interface")]
+[node name="ExampleEditor" type="Control" node_paths=PackedStringArray("interface", "open_file_dialog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_41ew0")
 interface = NodePath("EditorInterface")
+open_file_dialog = NodePath("File Dialogs/OpenFileDialog")
 
 [node name="EditorInterface" parent="." instance=ExtResource("1_lglsp")]
 layout_mode = 1
+
+[node name="File Dialogs" type="Node" parent="."]
+
+[node name="OpenFileDialog" type="FileDialog" parent="File Dialogs"]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 1
+transparent = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.level.json;Example Level")
+show_hidden_files = true
+use_native_dialog = true
+
+[node name="Helpers" type="Node" parent="."]
+
+[node name="Level Loader" type="Node" parent="Helpers"]
+script = ExtResource("3_k22i1")
