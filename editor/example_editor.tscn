@@ -28,7 +28,7 @@ initial_position = 1
 transparent = true
 file_mode = 0
 access = 2
-filters = PackedStringArray("*.level.json;Example Level")
+filters = PackedStringArray("*.level.json;Example Level File", "*.txt;Text File", "*.json;JSON File", "*.md;Markdown File")
 show_hidden_files = true
 use_native_dialog = true
 
