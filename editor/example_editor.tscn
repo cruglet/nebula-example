@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jbj7jdpb3kta" path="res://modules/example/editor/example_editor.gd" id="1_41ew0"]
 [ext_resource type="PackedScene" uid="uid://c0qfd8wovs2p1" path="res://components/editor/editor_interface.tscn" id="1_lglsp"]
-[ext_resource type="Script" uid="uid://bp80sxnstm1np" path="res://modules/example/editor/helpers/example_level_loader.gd" id="3_k22i1"]
+[ext_resource type="Script" uid="uid://bp80sxnstm1np" path="res://modules/example/editor/helpers/properties.gd" id="3_k22i1"]
 
 [node name="ExampleEditor" type="Control" node_paths=PackedStringArray("interface", "open_file_dialog")]
 layout_mode = 3

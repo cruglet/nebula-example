@@ -1,13 +1,18 @@
-[gd_scene format=3 uid="uid://cfv2s7au2hhc4"]
+[gd_scene load_steps=2 format=3 uid="uid://cfv2s7au2hhc4"]
+
+[ext_resource type="Script" uid="uid://bgmdlj6170io6" path="res://modules/example/scenes/level_editor/example_level_editor.gd" id="1_vwi8b"]
 
 [node name="ExampleLevelEditor" type="Nebula2DEditor"]
 bound_left = 0
+bound_right = 16384
 bound_top = 0
+bound_bottom = -8192
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vwi8b")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 1
@@ -54,3 +59,5 @@ text = "Test 2"
 [node name="Button3" type="Button" parent="UI/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Test 3"
+
+[connection signal="ready" from="." to="." method="_on_ready"]

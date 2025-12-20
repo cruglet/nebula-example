@@ -7,6 +7,7 @@ const VIEWPORT_EMPTY: PackedScene = preload("uid://nvh4x5sxnr7f")
 const EXAMPLE_LEVEL_EDITOR: PackedScene = preload("uid://cfv2s7au2hhc4")
 const FILESYSTEM_DOCK: PackedScene = preload("uid://bc2m8a8pmx73i")
 const TEXT_EDITOR: PackedScene = preload("uid://cjs0c72eukt3x")
+const PROPERTIES: PackedScene = preload("uid://dwoslainqrwl6")
 
 @export_group("Interface")
 @export var interface: NebulaEditorInterface
@@ -28,14 +29,26 @@ func _prepare_docks() -> void:
 	# Primary dock
 	interface.get_main_dock().set_empty_scene(VIEWPORT_EMPTY)
 	interface.get_main_dock().tab_close_display_policy = TabBar.CLOSE_BUTTON_SHOW_ACTIVE_ONLY
+	interface.get_main_dock().fixed = true
 	
-	# Secondary dock
-	interface.get_secondary_dock().auto_close_tabs = false
-	var fs: NebulaFilesystemDock = interface.get_secondary_dock().add_scene(FILESYSTEM_DOCK, "Filesystem")
+	# Top Right dock
+	interface.get_top_right_dock().auto_close_tabs = false
+	var fs: NebulaFilesystemDock = interface.get_top_right_dock().add_scene(FILESYSTEM_DOCK, "Filesystem")
 	if fs:
 		fs.root = loaded_project_path
 		fs.file_open_request.connect(open_file)
 		fs.file_renamed.connect(_on_file_moved)
+	
+	# Bottom Right Dock
+	interface.get_bottom_right_dock().auto_close_tabs = false
+	interface.get_bottom_right_dock().hide_on_empty = true
+	
+	var props: NebulaEditorPropertiesDock = interface.get_bottom_right_dock().add_scene(PROPERTIES, "Properties")
+	interface.get_main_dock().bind_node(props, &"Nebula2DEditor")
+
+
+func _on_finish() -> void:
+	interface.done()
 
  
 func _open_file_request() -> void:
